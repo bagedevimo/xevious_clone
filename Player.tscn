@@ -1,18 +1,17 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 63.8992, 64.4645 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
-shape = SubResource( 1 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KinematicBody2D"]
+position = Vector2( 14.0229, 27.6081 )
+scale = Vector2( 0.748087, 0.930775 )
+polygon = PoolVector2Array( 16.22, -3.05766, -52.6827, -2.71512, -52.8247, -24.7525, -26.5422, -56.0386, -12.3355, -56.1528, 16.22, -22.4688 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
