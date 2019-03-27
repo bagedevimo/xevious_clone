@@ -5,10 +5,9 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="Player1" parent="." instance=ExtResource( 1 )]
-position = Vector2( 419.04, 520 )
-player = "p1"
+position = Vector2( 680.043, 519.584 )
 
 [node name="Player2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 630.358, 520 )
-player = "p2"
+position = Vector2( 358.948, 520 )
+PlayerIndex = 1
 
