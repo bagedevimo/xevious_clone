@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/planes.png-4e04b1561eb08abf16cb95c7cb355355.stex"
+path="res://.import/player2.png-ec778c8193afe95f584a13fa3f8f48da.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://planes.png"
-dest_files=[ "res://.import/planes.png-4e04b1561eb08abf16cb95c7cb355355.stex" ]
+source_file="res://assets/missiles/player2.png"
+dest_files=[ "res://.import/player2.png-ec778c8193afe95f584a13fa3f8f48da.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -30,5 +30,5 @@ process/HDR_as_SRGB=false
 process/invert_color=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0
