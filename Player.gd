@@ -8,9 +8,14 @@ export (int) var PlayerIndex : int
 var player1_texture = preload("res://assets/ships/player1.png")
 var player2_texture = preload("res://assets/ships/player2.png")
 
+var screensize = OS.window_size
+var sprite : Sprite
+var sprite_size : Vector2
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var sprite = get_node("Sprite")
+	sprite 	= get_node("Sprite")
+	sprite_size = sprite.texture.get_size()
 	
 	if PlayerIndex == 0:
 		sprite.set_texture(player1_texture)
@@ -30,3 +35,6 @@ func _process(_delta):
 		
 	if Input.is_action_pressed("p%d_up" % (PlayerIndex + 1)):
 		position.y -= 5
+		
+	position.x = clamp(position.x, sprite_size.x / 2, screensize.x - (sprite_size.x / 2))
+	position.y = clamp(position.y, sprite_size.y / 2, screensize.y - (sprite_size.y / 2))
