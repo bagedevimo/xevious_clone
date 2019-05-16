@@ -1,11 +1,23 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://towerDefense_tilesheet@2.png" type="Texture" id=1]
+
+[sub_resource type="OccluderPolygon2D" id=1]
+polygon = PoolVector2Array( -51.8314, -33.3419, -34.0032, -52.0327, 32.4211, -52.0327, 51.8308, -33.6294, 51.9745, 33.6575, 33.8589, 52.2046, -34.4345, 52.4921, -52.2627, 33.37 )
 
 [node name="Node2D" type="Node2D"]
 
 [node name="GrassFloor" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 2432, 768, 128, 128 )
+region_rect = Rect2( 128, 128, 128, 128 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 130, 0 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 2560, 896, 128, 128 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite"]
+occluder = SubResource( 1 )
 

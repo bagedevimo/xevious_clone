@@ -1,4 +1,4 @@
-extends Node2D
+extends KinematicBody2D
 
 export (int) var player_index : int
 
@@ -25,17 +25,18 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	var move = Vector2()
 	if Input.is_action_pressed("p%d_down" % (player_index + 1)):
-		position.y += 5
+		move.y += 5
 		
 	if Input.is_action_pressed("p%d_right" % (player_index + 1)):
-		position.x += 5
+		move.x += 5
 		
 	if Input.is_action_pressed("p%d_left" % (player_index + 1)):
-		position.x -= 5
+		move.x -= 5
 		
 	if Input.is_action_pressed("p%d_up" % (player_index + 1)):
-		position.y -= 5
+		move.y -= 5
 		
 	if Input.is_action_pressed("p%d_fire" % (player_index + 1)) && shot_ready:
 		var new_missile = MISSILE.instance()
@@ -45,10 +46,10 @@ func _process(_delta):
 		shot_ready = false
 		get_node("ShotTimer").start()
 		
-	
-		
-	position.x = clamp(position.x, sprite_size.x / 2, screensize.x - (sprite_size.x / 2))
-	position.y = clamp(position.y, sprite_size.y / 2, screensize.y - (sprite_size.y / 2))
+	var collision = move_and_collide(move)
+	if collision:
+		print("Collding with %s", collision.collider.name)
+		queue_free()
 
 func _on_ShotTimer_timeout():
 	shot_ready = true

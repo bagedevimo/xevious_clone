@@ -1,4 +1,4 @@
-extends Node2D
+extends KinematicBody2D
 
 export (int) var player_index : int
 
@@ -16,5 +16,15 @@ func _ready():
 	elif player_index == 1:
 		sprite.set_texture(player2_texture)
 		
+#warning-ignore:unused_argument
 func _process(delta):
-	position.y -= (speed * delta)
+	pass
+	
+func _physics_process(delta):
+	var move = Vector2(0, -speed * delta)
+	var collision : KinematicCollision2D = move_and_collide(move)
+	
+	if collision:
+		print("Collided with: %s", collision.collider)
+		var enemy : Enemy = collision.collider.owner
+		enemy.hit()
