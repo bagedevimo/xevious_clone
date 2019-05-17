@@ -24,6 +24,10 @@ config/name="xevious_clone"
 run/main_scene="res://Stage.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Globals="*res://Globals.gd"
+
 [importer_defaults]
 
 texture={
