@@ -19,7 +19,6 @@ signal shoot
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	path_node = get_node("PathFollow2D")
-	print("Stage is: ", Globals.get_stage_node().name)
 	self.connect("shoot", Globals.get_stage_node(), "_do_shoot")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -34,10 +33,8 @@ func _process(delta):
 func _on_VisibilityNotifier2D_screen_entered():
 	start_attack = true
 	get_node("ShootTimer").start()
-	print("Starting the attack run!")
 
 func hit():
-	print("Hit!")
 	health -= 100
 
 
@@ -45,7 +42,9 @@ func _on_ShootTimer_timeout():
 	var player1 = Globals.get_stage_node().find_node("Player1")
 	var direction = player1.global_position - find_node("Sprite").global_position
 	
-	print("Direction is", direction)
-	
 #	var player2 = Globals.get_stage_node().find_node("Player2")
 	emit_signal("shoot", Bullet, get_node("PathFollow2D").get_global_transform_with_canvas().get_origin(), direction)
+
+
+func _on_VisibilityNotifier2D_screen_exited():
+	queue_free()
