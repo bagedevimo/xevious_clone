@@ -52,8 +52,33 @@ func hit():
 
 func _on_ShootTimer_timeout():
 	var player1 = Globals.get_stage_node().find_node("Player1")
+	var player2 = Globals.get_stage_node().find_node("Player2")
+	
+	var distanceToPlayer1 = INF
+	var distanceToPlayer2 = INF
+	
+	var directionToPlayer1 : Vector2
+	var directionToPlayer2 : Vector2
+	
 	if player1:
-		var direction = player1.global_position - find_node("Sprite").global_position
+		directionToPlayer1 = player1.global_position - find_node("Sprite").global_position
+		distanceToPlayer1 = directionToPlayer1.length()
+	
+	if player2:
+		directionToPlayer2 = player2.global_position - find_node("Sprite").global_position
+		distanceToPlayer2 = directionToPlayer2.length()
+		
+	var target
+
+	if distanceToPlayer1 > distanceToPlayer2:
+		target = player2
+	elif distanceToPlayer2 > distanceToPlayer1:
+		target = player1
+	elif distanceToPlayer1 == distanceToPlayer2:
+		target = player1
+	
+	if target:
+		var direction = target.global_position - find_node("Sprite").global_position
 		emit_signal("shoot", Bullet, get_node("PathFollow2D").get_global_transform_with_canvas().get_origin(), direction)
 
 
