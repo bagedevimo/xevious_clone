@@ -13,7 +13,8 @@ func _ready():
 #	pass
 
 func start_playing():
-	get_tree().change_scene("res://Stage.tscn")
+	if get_tree().change_scene("res://Stage.tscn") != OK:
+		print("Failed to load the scene")
 
 func _on_SinglePlayerButton_pressed():
 	start_playing()

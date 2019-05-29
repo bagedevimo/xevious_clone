@@ -9,9 +9,7 @@ extends Node2D
 var start_attack = false
 var path_node
 
-export(Array) var targets = []
 export(int) var health = 100
-export(bool) var repeats = false
 
 var Bullet = preload("res://Bullet.tscn")
 
@@ -23,7 +21,9 @@ signal shoot
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	path_node = get_node("PathFollow2D")
-	self.connect("shoot", Globals.get_stage_node(), "_do_shoot")
+	if self.connect("shoot", Globals.get_stage_node(), "_do_shoot") != OK:
+		print("Couldn't find the stage and connect")
+
 	path_node.unit_offset = 1.0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
