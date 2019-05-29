@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="xevious_clone"
-run/main_scene="res://Stage.tscn"
+run/main_scene="res://Menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
