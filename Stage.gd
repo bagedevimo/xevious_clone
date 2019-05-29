@@ -5,12 +5,22 @@ extends Node2D
 # var b = "text"
 
 const Bullet = preload("res://Bullet.tscn")
+const Player = preload("res://Player.tscn")
 
 export(int) var bullet_speed = 100
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	var player1 = Player.instance()
+	player1.position = $Player1SpawnPosition.position
+	player1.player_index = 0
+	add_child(player1)
+		
+	if Globals.is_p2_playing():
+		var player2 = Player.instance()
+		player2.position = $Player2SpawnPosition.position
+		player2.player_index = 1
+		add_child(player2)
 	
 func _do_shoot(type, position, direction):
 	var new_bullet = Bullet.instance()

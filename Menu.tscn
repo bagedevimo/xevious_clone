@@ -35,3 +35,4 @@ size_flags_vertical = 3
 text = "Two player"
 
 [connection signal="pressed" from="GridContainer/SinglePlayerButton" to="." method="_on_SinglePlayerButton_pressed"]
+[connection signal="pressed" from="GridContainer/TwoPlayerButton" to="." method="_on_TwoPlayerButton_pressed"]

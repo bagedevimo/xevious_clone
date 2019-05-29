@@ -12,6 +12,12 @@ func _ready():
 #func _process(delta):
 #	pass
 
+func start_playing():
+	get_tree().change_scene("res://Stage.tscn")
 
 func _on_SinglePlayerButton_pressed():
-	get_tree().change_scene("res://Stage.tscn")
+	start_playing()
+
+func _on_TwoPlayerButton_pressed():
+	Globals.enable_p2()
+	start_playing()
