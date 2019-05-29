@@ -11,7 +11,7 @@ bullet_speed = 500
 [node name="CurrentLevel" type="Node2D" parent="."]
 
 [node name="Level1" parent="CurrentLevel" instance=ExtResource( 2 )]
-position = Vector2( -1.42346, -2847.96 )
+position = Vector2( -2.30957, -2848.85 )
 
 [node name="UI" parent="CurrentLevel" instance=ExtResource( 3 )]
 
