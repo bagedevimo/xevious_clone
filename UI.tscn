@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://UI.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/Press start 2p.tres" type="DynamicFont" id=2]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Blinking"
@@ -23,16 +24,21 @@ script = ExtResource( 1 )
 
 [node name="Lives" type="Label" parent="."]
 editor/display_folded = true
-margin_right = 60.0
-margin_bottom = 14.0
+margin_left = 12.0
+margin_top = 9.51565
+margin_right = 72.0
+margin_bottom = 25.5156
+custom_fonts/font = ExtResource( 2 )
 text = "1UP"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Lives"]
 anims/Blinking = SubResource( 1 )
 
 [node name="Score" type="Label" parent="."]
-margin_top = 15.0
-margin_right = 120.0
-margin_bottom = 30.0
+margin_left = 12.0
+margin_top = 29.3867
+margin_right = 140.0
+margin_bottom = 45.3867
+custom_fonts/font = ExtResource( 2 )
 text = "Score: 0"
 
