@@ -31,5 +31,4 @@ texture = ExtResource( 2 )
 
 [connection signal="screen_entered" from="PathFollow2D/VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
 [connection signal="screen_exited" from="PathFollow2D/VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
-[connection signal="viewport_exited" from="PathFollow2D/VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_viewport_exited"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_ShootTimer_timeout"]

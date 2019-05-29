@@ -11,8 +11,6 @@ var path_node
 
 export(int) var health = 100
 
-var Bullet = preload("res://Bullet.tscn")
-
 var direction = 1
 var speed = 300
 
@@ -51,8 +49,10 @@ func hit():
 
 
 func _on_ShootTimer_timeout():
-	var player1 = Globals.get_stage_node().find_node("Player1")
-	var player2 = Globals.get_stage_node().find_node("Player2")
+	var player1 = Globals.get_stage_node().find_node("Player1", false, false)
+	var player2 = Globals.get_stage_node().find_node("Player2", false, false)
+	
+	var stage = Globals.get_stage_node()
 	
 	var distanceToPlayer1 = INF
 	var distanceToPlayer2 = INF
@@ -79,7 +79,7 @@ func _on_ShootTimer_timeout():
 	
 	if target:
 		var direction = target.global_position - find_node("Sprite").global_position
-		emit_signal("shoot", Bullet, get_node("PathFollow2D").get_global_transform_with_canvas().get_origin(), direction)
+		emit_signal("shoot", get_node("PathFollow2D").get_global_transform_with_canvas().get_origin(), direction)
 
 
 func _on_VisibilityNotifier2D_screen_exited():

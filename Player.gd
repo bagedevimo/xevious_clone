@@ -7,10 +7,8 @@ var player2_texture = preload("res://assets/ships/player2.png")
 
 const MISSILE = preload("res://Missile.tscn")
 
-var screensize = OS.window_size
 var sprite : Sprite
 var sprite_size : Vector2
-var shot_timer : Timer
 var shot_ready : bool = true
 
 # Called when the node enters the scene tree for the first time.
@@ -42,7 +40,7 @@ func _process(_delta):
 		var new_missile = MISSILE.instance()
 		new_missile.player_index = player_index
 		new_missile.position = position + get_node("MissileSpawnLocation").position
-		get_parent().add_child(new_missile)
+		Globals.get_stage_node().add_child(new_missile)
 		shot_ready = false
 		get_node("ShotTimer").start()
 		
