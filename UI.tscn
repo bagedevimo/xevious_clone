@@ -29,6 +29,7 @@ margin_top = 9.51565
 margin_right = 72.0
 margin_bottom = 25.5156
 custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
 text = "1UP"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Lives"]
