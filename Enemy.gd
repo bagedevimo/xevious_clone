@@ -12,7 +12,7 @@ var path_node
 export(int) var health = 100
 
 var direction = 1
-var speed = 300
+var speed = 240
 
 signal shoot
 
