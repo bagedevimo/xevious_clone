@@ -6,7 +6,7 @@ var player1_texture = preload("res://assets/missiles/player1.png")
 var player2_texture = preload("res://assets/missiles/player2.png")
 
 var sprite : Sprite
-var speed : int = 500
+var speed : int = 650
 
 func _ready():
 	sprite = get_node("Sprite")
