@@ -9,6 +9,8 @@ const Player = preload("res://Player.tscn")
 
 export(int) var bullet_speed = 100
 
+var score = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var player1 = Player.instance()
@@ -32,5 +34,8 @@ func _do_shoot(position, direction):
 
 	new_bullet.position = position
 	new_bullet.velocity = normalised_direction
-	
-	
+
+func _on_enemy_died(point_value):
+	score += point_value
+	print("Score is: %d", score)
+	$CurrentLevel/UI.score_changed(score)

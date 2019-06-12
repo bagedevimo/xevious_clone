@@ -21,3 +21,4 @@ position = Vector2( 269.03, 308.457 )
 [node name="Player2SpawnPosition" type="Node2D" parent="."]
 position = Vector2( 691.13, 310.777 )
 
+[connection signal="enemy_died" from="CurrentLevel/Level1" to="." method="_on_enemy_died"]

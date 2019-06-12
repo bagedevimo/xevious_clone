@@ -10,14 +10,19 @@ var start_attack = false
 var path_node
 
 export(int) var health = 100
+export(int) var point_value = 10
 
 var direction = 1
 var speed = 240
 
 signal shoot
 
+signal enemy_died
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	add_to_group("enemies")
+
 	path_node = get_node("PathFollow2D")
 	if self.connect("shoot", Globals.get_stage_node(), "_do_shoot") != OK:
 		print("Couldn't find the stage and connect")
@@ -36,6 +41,8 @@ func _process(delta):
 		path_node.unit_offset = 0
 
 	if health <= 0:
+		print("Emmiting enemy_died from Enemy.gd")
+		emit_signal("enemy_died", point_value)
 		queue_free()
 	pass
 
@@ -51,8 +58,6 @@ func hit():
 func _on_ShootTimer_timeout():
 	var player1 = Globals.get_stage_node().find_node("Player1", false, false)
 	var player2 = Globals.get_stage_node().find_node("Player2", false, false)
-	
-	var stage = Globals.get_stage_node()
 	
 	var distanceToPlayer1 = INF
 	var distanceToPlayer2 = INF
