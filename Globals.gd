@@ -23,3 +23,21 @@ func enable_p2():
 	
 func is_p2_playing():
 	return p2_playing
+	
+func get_closest_player(point : Vector2):
+	var player1 = get_stage_node().find_node("Player1", false, false)
+	var player2 = get_stage_node().find_node("Player2", false, false)
+	
+	var distanceToPlayer1 = INF
+	var distanceToPlayer2 = INF
+	
+	if player1:
+		distanceToPlayer1 = player1.global_position.distance_to(point)
+	
+	if player2:
+		distanceToPlayer2 = player2.global_position.distance_to(point)
+
+	if distanceToPlayer1 > distanceToPlayer2:
+		return player2
+	else:
+		return player1
